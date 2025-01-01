@@ -1,3 +1,0 @@
-all:
-	gcc -I src/include -L src/lib -o main main.c -mingw64 -lSDL2 lSDL2
-

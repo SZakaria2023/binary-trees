@@ -1,2 +1,0 @@
-all:    
-	gcc -I src/include -o main main.c src/lib/libSDL2.a src/lib/libSDL2main.a

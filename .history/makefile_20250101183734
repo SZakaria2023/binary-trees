@@ -1,3 +1,0 @@
-all:
-	gcc -Isrc/include -L rc/lib -o main main.c -lSDL2 -lSDLmain
-

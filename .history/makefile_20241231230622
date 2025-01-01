@@ -1,2 +1,0 @@
-all:    
-	gcc -I src/include -o main main.c -Lsrc/lib -lSDL2 -lSDL2main

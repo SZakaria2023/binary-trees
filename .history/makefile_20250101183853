@@ -1,3 +1,0 @@
-all:
-	gcc -Isrc/include -Lsrc/lib -o main main.c -lmingw64 -lSDL2main -lSD2L
-

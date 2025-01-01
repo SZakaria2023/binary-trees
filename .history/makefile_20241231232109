@@ -1,5 +1,0 @@
-INCLUDE_PATH = C:/Users/DELL/Documents/algo_project/src/include
-LIBRARY_PATH = C:/Users/DELL/Documents/algo_project/src/lib
-
-all:
-	gcc -I $(INCLUDE_PATH) -o main main.c -L$(LIBRARY_PATH) -lSDL2 -lSDL2main
