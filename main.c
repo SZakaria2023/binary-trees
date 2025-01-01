@@ -1,4 +1,4 @@
-#define SDL_MAIN_HANDLED
+
 #include <SDL2/SDL.h>
 #include <stdio.h>
 
@@ -30,7 +30,7 @@ int main(int argc, char* argv[]) {
     }
 
     
-    SDL_SetRenderDrawColor(renderer, 0, 0, 255, 255);  
+    SDL_SetRenderDrawColor(renderer, 0, 255, 0, 255);  
 
     
     SDL_RenderClear(renderer);
