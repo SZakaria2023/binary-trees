@@ -1,0 +1,10 @@
+CC = gcc
+CFLAGS = -I src/include
+LDFLAGS = -L src/lib
+LIBS = -lmingw32 -lSDL2
+TARGET = main
+SRC = main.c
+
+all:
+	gcc -I src/include -L src/lib -o main main.c -lSDL2 -lSDLmain
+
