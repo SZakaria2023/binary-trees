@@ -85,6 +85,24 @@ node* integrate_bst_into_bst(node* bst1,node* bst2){
     return bst1;}
 }
 
+node* delete_node_form_bst(node* racine,int val){
+    node* position=search_for_node(racine,val);
+    if(position!=NULL){
+        if(position->ls=NULL && position->rs==NULL){free(position);}
+else{node* copy_left=copy_bst(position->ls);
+node* copy_right=copy_bst(position->rs);
+free(position);
+racine=integrate_bst_into_bst(racine,copy_right);
+racine=integrate_bst_into_bst(racine,copy_left);
+return racine;
+
+}
+    }
+    
+
+}
+
+
 node* delete_node_form_bst(node* racine, int val) {
     if (racine == NULL) {
         return NULL;

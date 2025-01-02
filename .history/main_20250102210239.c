@@ -32,7 +32,7 @@ temp2=temp1;
         }
         else{temp1=temp1->ls;}
     }
-    if(temp2->value>val){temp2->ls=newNode;}
+    if(temp2->ls==NULL){temp2->ls=newNode;}
     else{temp2->rs=newNode;}}
     return racine;
 }
@@ -72,47 +72,23 @@ node* copy_bst(node* racine){
         node* copy=create_node(racine->value);
         copy->ls=copy_bst( racine->ls);
         copy->rs=copy_bst( racine->rs);
-        return copy;
     }
-}
-node* integrate_bst_into_bst(node* bst1,node* bst2){
-    if(bst1==NULL){return bst2;}
-    if(bst2==NULL){return bst1;}
-    else{
-    bst1 = add_node_in_bst(bst1, bst2->value);
-    bst1 = integrate_bst_into_bst(bst1, bst2->ls);
-    bst1 = integrate_bst_into_bst(bst1, bst2->rs);
-    return bst1;}
 }
 
-node* delete_node_form_bst(node* racine, int val) {
-    if (racine == NULL) {
-        return NULL;
-    }
-    if (val < racine->value) {
-        racine->ls = delete_node_form_bst(racine->ls, val);
-    } else if (val > racine->value) {
-        racine->rs = delete_node_form_bst(racine->rs, val);
-    } else {
-        if (racine->ls == NULL) {
-            node* temp = racine->rs;
-            free(racine);
-            return temp;
-        } else if (racine->rs == NULL) {
-            node* temp = racine->ls;
-            free(racine);
-            return temp;
-        } else {
-            node* temp = racine->rs;
-            while (temp->ls != NULL) {
-                temp = temp->ls;
-            }
-            racine->value = temp->value;
-            racine->rs = delete_node_form_bst(racine->rs, temp->value);
-        }
-    }
-    return racine;
+node* delete_node_form_bst(node* racine,int val){
+    node* position=search_for_node(racine,val);
+    if(position!=NULL){
+        if(position->ls=NULL && position->rs==NULL){free(position);}
+else{
+
 }
+    }
+    
+
+}
+
+
+
 
 
 int main(int argc, char* argv[]) {
