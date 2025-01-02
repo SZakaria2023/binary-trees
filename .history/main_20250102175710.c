@@ -14,8 +14,8 @@ int main(int argc, char* argv[]) {
     SDL_SetRenderDrawColor(renderer,255,255,255,255);
     SDL_RenderDrawPoint(renderer,401,400);
     SDL_RenderDrawPoint(renderer,400,400);
-    SDL_RenderDrawPoint(renderer,400,401);
-    SDL_RenderDrawPoint(renderer,401,401);
+    SDL_RenderDrawPoint(renderer,400,400);
+    SDL_RenderDrawPoint(renderer,400,400);
     SDL_RenderPresent(renderer);
     SDL_Delay(10000);
 
