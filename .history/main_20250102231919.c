@@ -86,6 +86,34 @@ node* integrate_bst_into_bst(node* bst1,node* bst2){
 }
 
 node* delete_node_form_bst(node* racine, int val) {
+    if (racine == NULL) {
+        return NULL;
+    }
+    if (val < racine->value) {
+        racine->ls = delete_node_form_bst(racine->ls, val);
+    } else if (val > racine->value) {
+        racine->rs = delete_node_form_bst(racine->rs, val);
+    } else {
+        if (racine->ls == NULL) {
+            node* temp = racine->rs;
+            free(racine);
+            return temp;
+        } else if (racine->rs == NULL) {
+            node* temp = racine->ls;
+            free(racine);
+            return temp;
+        } else {
+            node* temp = racine->rs;
+            while (temp->ls != NULL) {
+                temp = temp->ls;
+            }
+            racine->value = temp->value;
+            racine->rs = delete_node_form_bst(racine->rs, temp->value);
+        }
+    }
+    return racine;
+}
+node* delete_node_form_bst(node* racine, int val) {
     node* position = search_for_node(racine, val);
     
     if (position != NULL) {
