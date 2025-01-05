@@ -1,11 +1,10 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2/SDL2_gfxPrimitives.h>
-#include <SDL2/SDL_ttf.h>
+#include <
 #include <SDL2/SDL_image.h>
 #include <stdio.h>
 #include <stdbool.h>
-
 
 typedef struct node{
     int value;
@@ -118,4 +117,57 @@ node* delete_node_form_bst(node* racine, int val) {
     }
     return racine;
 }
+void render_text(SDL_Renderer* renderer, const char* text, int x, int y) {
+}
 
+void render_circle(SDL_Renderer* renderer, int x, int y, int radius) {
+}
+
+int main(int argc, char* argv[]) {
+    SDL_Init(SDL_INIT_VIDEO);
+    SDL_Window* window = SDL_CreateWindow("SDL2 BST Visualization", SDL_WINDOWPOS_UNDEFINED, SDL_WINDOWPOS_UNDEFINED, 800, 600, SDL_WINDOW_SHOWN);
+    SDL_Renderer* renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED);
+    bool quit = false;
+    SDL_Event e;
+    node* root = NULL;
+
+    while (!quit) {
+        while (SDL_PollEvent(&e) != 0) {
+            if (e.type == SDL_QUIT) {
+                quit = true;
+            }
+
+            if (e.type == SDL_KEYDOWN) {
+                if (e.key.keysym.sym == SDLK_a) {
+                    root = add_node_in_bst(root, 10);
+                }
+                if (e.key.keysym.sym == SDLK_s) {
+                    root = delete_node_form_bst(root, 10);
+                }
+                if (e.key.keysym.sym == SDLK_d) {
+                    node* found = search_for_node(root, 10);
+                    if (found != NULL) {
+                        printf("Node found with value: %d\n", found->value);
+                    } else {
+                        printf("Node not found.\n");
+                    }
+                }
+            }
+        }
+
+        SDL_SetRenderDrawColor(renderer, 255, 255, 255, 255);
+        SDL_RenderClear(renderer);
+
+        render_circle(renderer, 400, 300, 50);
+
+        render_text(renderer, "Press A to Add, S to Delete, D to Search", 20, 20);
+
+        SDL_RenderPresent(renderer);
+    }
+
+    SDL_DestroyRenderer(renderer);
+    SDL_DestroyWindow(window);
+    SDL_Quit();
+
+    return 0;
+}

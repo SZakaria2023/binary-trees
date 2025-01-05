@@ -118,4 +118,3 @@ node* delete_node_form_bst(node* racine, int val) {
     }
     return racine;
 }
-
