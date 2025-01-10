@@ -104,7 +104,7 @@ bool is_mouse_over_node(int mouseX, int mouseY, int nodeX, int nodeY) {
     return (dx * dx + dy * dy <= radius * radius);
 }
 
-int main() {
+int main(int argc, char* argv[]) {
     if (SDL_Init(SDL_INIT_VIDEO) != 0) {
         printf("SDL Initialization failed: %s\n", SDL_GetError());
         return 1;
