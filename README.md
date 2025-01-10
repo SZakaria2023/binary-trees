@@ -95,16 +95,6 @@ void visualize_search(node* root, int target, coordonner* coords, SDL_Renderer* 
     if (current == NULL) {
         printf("Value %d not found!\n", target);
     }
-
-    bool continueRunning = true;
-    SDL_Event event;
-    while (continueRunning) {
-        while (SDL_PollEvent(&event)) {
-            if (event.type == SDL_QUIT) {
-                continueRunning = false;
-            }
-        }
-    }
 }
 
 bool is_mouse_over_node(int mouseX, int mouseY, int nodeX, int nodeY) {
